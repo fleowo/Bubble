@@ -167,4 +167,10 @@ function Misc:InitAutoLoad(Window)
     Window:SetValue("UI/Enabled",Window.Flags["UI/OOL"])
 end
 
+LocalPlayer.Idled:connect(function()
+    VirtualUser:Button2Down(Vector2.new(0,0),Workspace.CurrentCamera.CFrame)
+    wait(1)
+    VirtualUser:Button2Up(Vector2.new(0,0),Workspace.CurrentCamera.CFrame)
+end)
+
 return Misc
