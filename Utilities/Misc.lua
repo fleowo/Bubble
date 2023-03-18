@@ -1,8 +1,11 @@
+-- THANKS PARVUS FOR THIS SCRIPT :D
+
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 local Stats = game:GetService("Stats")
 local TeleportService = game:GetService("TeleportService")
 local HttpService = game:GetService("HttpService")
+local VirtualUser = game:GetService("VirtualUser")
 
 repeat task.wait() until Stats.Network:FindFirstChild("ServerStatsItem")
 local Ping = Stats.Network.ServerStatsItem["Data Ping"]
