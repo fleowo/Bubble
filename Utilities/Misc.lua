@@ -9,7 +9,7 @@ local VirtualUser = game:GetService("VirtualUser")
 
 repeat task.wait() until Stats.Network:FindFirstChild("ServerStatsItem")
 local Ping = Stats.Network.ServerStatsItem["Data Ping"]
-local Request = (syn and syn.request) or (http and http.request) or request
+local Request = request or (http and http.request) or (syn and syn.request)
 local LocalPlayer = Players.LocalPlayer
 local Misc = {}
 
