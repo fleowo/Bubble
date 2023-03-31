@@ -4,6 +4,10 @@ local PromptLib = loadstring(game:HttpGetAsync("https://raw.githubusercontent.co
 local MarketplaceService = game:GetService("MarketplaceService")
 local QueueOnTeleport = queue_on_teleport or queueonteleport or (syn and syn.queue_on_teleport)
 
+local Players = game:GetService("Players")
+repeat task.wait() until Players.LocalPlayer
+local LocalPlayer = Players.LocalPlayer
+
 if Bubble and Bubble.Loaded then
     PromptLib("Error", "Bubble is already loaded \n(Error Code: 167)", {
         {Text = "OK", LayoutOrder = 0, Primary = true, Callback = function() end}
@@ -54,6 +58,8 @@ if not Bubble.Loaded then
     })
 end
 
-task.spawn(function()
-    QueueOnTeleport("loadstring(game:HttpGetAsync'https://raw.githubusercontent.com/fleowo/Bubble/request/Loader.lua')()")
+LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.InProgress then
+        QueueOnTeleport("loadstring(game:HttpGetAsync'https://raw.githubusercontent.com/fleowo/Bubble/request/Loader.lua')()")
+    end
 end)
