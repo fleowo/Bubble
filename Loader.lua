@@ -56,6 +56,7 @@ if not Bubble.Loaded then
             setclipboard("https://discord.gg/ZSQzPK3t2f")
         end}
     })
+    return
 end
 
 LocalPlayer.OnTeleport:Connect(function(State)
