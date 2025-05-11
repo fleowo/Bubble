@@ -1,7 +1,7 @@
 repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer.Character
 
-local PromptLib = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/fleowo/Bubble/request/Utilities/PromptLibrary.lua"))()
+local PromptLib = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlexR32/Roblox/refs/heads/main/Useful/PromptLibrary.lua"))()
 local MarketplaceService = game:GetService("MarketplaceService")
 local Players = game:GetService("Players")
 local VirtualUser = game:GetService("VirtualUser")
