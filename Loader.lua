@@ -19,7 +19,7 @@ end
 local function Loadscript(Script)
     local Domain = "https://raw.githubusercontent.com/fleowo/Bubble/request/"
     return pcall(function()
-        return loadstring(game:HttpGet(("%s%s.lua"):format(Domain, Script)))()
+        return loadstring(game:HttpGetAsync(("%s%s.lua"):format(Domain, Script)))()
     end)
 end
 
