@@ -57,6 +57,11 @@ for id, gameData in pairs(Bubble.Games) do
     end
 end
 
+if not Bubble.Loaded then
+    warn("Bubble does not support this game")
+    return
+end
+
 CoreGui.DescendantAdded:Connect(function(Ins)
     if Ins.Name == "LeaveButton" then
         task.delay(1, function()
@@ -64,7 +69,3 @@ CoreGui.DescendantAdded:Connect(function(Ins)
         end)
     end
 end)
-
-if not Bubble.Loaded then
-    warn("Bubble does not support this game")
-end
