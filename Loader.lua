@@ -1,5 +1,4 @@
-repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer
-repeat task.wait() until game.Players.LocalPlayer.Character
+repeat task.wait() until game:IsLoaded()
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
