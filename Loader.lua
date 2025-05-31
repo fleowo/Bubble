@@ -2,10 +2,8 @@ repeat task.wait() until game:IsLoaded()
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
-local VirtualUser = game:GetService("VirtualUser")
 local HttpService = game:GetService("HttpService")
 local TeleportService = game:GetService("TeleportService")
-local MarketplaceService = game:GetService("MarketplaceService")
 
 if Bubble and Bubble.Loaded then
     warn("Bubble is already loaded")
@@ -20,8 +18,7 @@ local success, response = pcall(function()
 end)
 
 if success and response and response.Body then
-    local data = HttpService:JSONDecode(response.Body)
-    universeId = data.universeId
+    data = HttpService:JSONDecode(response.Body)
 else
     warn("Failed to get universeId from API")
     return
@@ -37,22 +34,17 @@ end
 getgenv().Bubble = {
     Loaded = false,
     Games = {
-        [2655311011] = {Name = "Anime Dimensions", PlaceId = 6938803436},
-        [7074860883] = {Name = "Arise Crossover",  PlaceId = 87039211657390},
+        [6938803436]     = {Name = "Anime Dimensions", UUID = 2655311011},
+        [87039211657390] = {Name = "Arise Crossover",  UUID = 7074860883},
     }
 }
 
 for id, gameData in pairs(Bubble.Games) do
-    if universeId == id then
+    if data.universeId == gameData.UUID then
         print("Found supported game:", gameData.Name)
         Loadscript("Games/"..id)
         Bubble.Loaded = true
-        PlaceId = gameData.PlaceId
-
-        Players.LocalPlayer.Idled:connect(function()
-            VirtualUser:CaptureController()
-            VirtualUser:ClickButton2(Vector2.new())
-        end)
+        PlaceId = id
     end
 end
 
