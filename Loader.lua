@@ -34,9 +34,7 @@ end
 getgenv().Bubble = {
     Loaded = false,
     Games = {
-        [6938803436]     = {Name = "Anime Dimensions", UUID = 2655311011},
         [87039211657390] = {Name = "Arise Crossover",  UUID = 7074860883},
-        [17334984034]    = {Name = "Anime Kingdom",    UUID = 5931217122},
     }
 }
 
